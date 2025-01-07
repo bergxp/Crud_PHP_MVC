@@ -7,6 +7,7 @@ require_once 'app/Controllers/HomeController.php';
 require_once 'app/Controllers/ErrorController.php';
 require_once 'app/Controllers/PostController.php';
 require_once 'app/Model/Postagem.php';
+require_once 'app/Model/Comentario.php';
 $template = file_get_contents("app/Template/estrutura.html");
 
 ob_start();

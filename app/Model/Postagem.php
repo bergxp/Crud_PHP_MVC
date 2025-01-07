@@ -1,7 +1,9 @@
 <?php
 
-class Postagem {
-    public static function selecionaTodos (){
+class Postagem
+{
+    public static function selecionaTodos()
+    {
 
         $con = Connection::getConn();
         $sql = "SELECT * FROM postagem ORDER BY id DESC";
@@ -10,15 +12,16 @@ class Postagem {
 
         $resultado = array();
 
-       while($row = $sql->fetchObject('Postagem')){
-        $resultado[] = $row;
-       }
-       if(!$resultado){
-        throw new Exception("Não foi possivel encontar nenhum registro no banco");
-       }
-    return $resultado;
+        while ($row = $sql->fetchObject('Postagem')) {
+            $resultado[] = $row;
+        }
+        if (!$resultado) {
+            throw new Exception("Não foi possivel encontar nenhum registro no banco");
+        }
+        return $resultado;
     }
-    public static function selecionarPorId($idPost){
+    public static function selecionarPorId($idPost)
+    {
         $con = Connection::getConn();
         $sql = "SELECT * FROM postagem WHERE id=:id";
         $sql = $con->prepare($sql);
@@ -26,10 +29,14 @@ class Postagem {
         $sql->execute();
 
         $resultado = $sql->fetchObject('Postagem');
-        if(!$resultado){
+        if (!$resultado) {
             throw new Exception("Não foi encontrado nenhum registro no banco de dados");
+        }else{
+            $resultado->comentarios = Comentario::selecionarComentarios($resultado->id);
+            if($resultado->comentarios){
+                $resultado->comentarios = "Nâo existe nenhum comentario para está postagem!";
+            }
         }
         return $resultado;
-            }
-
+    }
 }

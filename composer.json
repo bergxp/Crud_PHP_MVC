@@ -1,0 +1,17 @@
+{
+    "name": "berg/crud",
+    "autoload": {
+        "psr-4": {
+            "Berg\\Crud\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bergxp",
+            "email": "berg215@hotmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.18"
+    }
+}

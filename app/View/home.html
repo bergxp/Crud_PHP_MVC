@@ -1,0 +1,13 @@
+<div class="container mt-5 list-group">
+        <h1 class="fw-bold text-primary">POSTAGENS</h1>
+        {% for postagem in postagens %}
+        <article class="list-group-item mt-3">
+
+            <header>
+                <h2 class="fs-1"><a class="text-decoration-none" href="http://localhost:3000/?pagina=post&id={{postagem.id}}">{{postagem.titulo}}</a></h2>
+            </header>
+            <p class="fs-5 mt-3"> {{postagem.conteudo}}  </p>
+        </article>
+        {% endfor%}
+
+    </div>

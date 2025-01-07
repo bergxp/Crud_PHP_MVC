@@ -1,0 +1,8 @@
+a{
+    text-decoration: none;
+}
+.nav-item a:hover{
+
+    color: rgb(53, 53, 53);
+    text-decoration: underline;
+}

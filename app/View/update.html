@@ -1,0 +1,10 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-primary">Editar Publicação</h1>
+</div>
+<form method="POST" action="?pagina=admin&metodo=update">
+        <input type="hidden" name="id" value="{{id}}">
+    <input type="text" name="titulo" class="form-control my-2" value="{{titulo}}" placeholder="Título">
+    
+        <textarea name="conteudo" class="form-control" placeholder="Conteúdo">{{conteudo}}</textarea>    
+    <input class="mt-2 btn btn-primary" type="submit" value="Editar">
+</form>

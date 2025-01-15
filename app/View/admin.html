@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center flex-column align-items-center">
+
+<h1>Gerenciador de conteúdo</h1>
+<br>
+<div class="w-75">
+<h3><a href="http://localhost:3000/?pagina=admin&metodo=create" class="text-decoration-none">Criar Publicação</a></h3>
+</div>
+
+<table class="table w-75">
+    <tr class="table-primary">
+        <th >ID</th>
+        <th>TITULO</th>
+        <th>ALTERAÇÃO</th>
+        <th>DELEÇÃO</th>
+       
+    </tr>
+{% for postagem in postagens %}
+    <tr class="table-primary">
+        <th>{{postagem.id}}</td>
+        <td>{{postagem.titulo}}</td>
+  
+        <th><a class="btn btn-primary w-25"  href="http://localhost:3000/?pagina=admin&metodo=change&id={{postagem.id}}"><i class="fa-regular fa-pen-to-square"></i></a></th>
+        <th><a class="btn btn-danger w-25" href="http://localhost:3000/?pagina=admin&metodo=delete&id={{postagem.id}}"><i class="fa-regular fa-trash-can"></i></a></th>
+
+    </tr>   
+    {% endfor %}
+
+</table>
+  </div>

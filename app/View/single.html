@@ -1,10 +1,32 @@
 
   <article class="list-group-item mt-3">
+    
     <header>
       <h2 class="fs-1">
         <h2 class="fs-1"><a class="text-decoration-none" >{{titulo}}</a></h2>
       </h2>
     </header>
     <p class="fs-5 mt-3">{{conteudo}}</p>
+    <br>
+    <hr>
+    <br>
+
+    <form method="POST" action="?pagina=post&metodo=addComent">
+      <input type="text" name="nome" class="form-control my-2" placeholder="Nome">
+      <textarea type="text" name="msg" class="form-control my-2" placeholder="Mensagem"></textarea>
+      <input type="hidden" name="id" value="{{id}}">
+      <input class="btn btn-primary" type="submit" value="Enviar">
+    </form>
+    <br>
+    {% if comentarios == false %}
+    <p class="fw-bold">Nenhum comentario encontratado para esta postagem</p>
+    {% else %}
+    {% for coment in comentarios %}
+    <div class="">
+    <h3 class="border-bottom py-3">{{coment.nome}}</h3>
+    <p>{{coment.mensagem}}</p>
+  </div>
+    {%endfor%}
+    {%  endif %}
   </article>
 </div>
